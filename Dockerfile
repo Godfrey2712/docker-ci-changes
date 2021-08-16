@@ -53,17 +53,21 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 RUN composer self-update --2
 
-RUN composer global require \
-"squizlabs/php_codesniffer=$php_codesniffer" \
-"phpcompatibility/php-compatibility=$php_compatibility" \
-"wp-coding-standards/wpcs=$wpcs" \
-"dealerdirect/phpcodesniffer-composer-installer=$phpcodesniffer_composer_installer" \
-"sirbrillig/phpcs-variable-analysis=$phpcs_variable_analysis"
+COPY composer.json ./
+
+RUN composer install
+
+# RUN composer global require \
+# "squizlabs/php_codesniffer=$php_codesniffer" \
+# "phpcompatibility/php-compatibility=$php_compatibility" \
+# "wp-coding-standards/wpcs=$wpcs" \
+# "dealerdirect/phpcodesniffer-composer-installer=$phpcodesniffer_composer_installer" \
+# "sirbrillig/phpcs-variable-analysis=$phpcs_variable_analysis"
 
 # Check versions after complete
 RUN node -v
 RUN npm -v
 RUN composer -V
 RUN gulp -v
-RUN composer global show -i
+RUN composer show -i
 RUN npm list -g --depth 0
