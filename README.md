@@ -17,11 +17,11 @@ This Docker Image Includes:
      * Node SASS (4.14.1)
      * Gulp SASS (4.1.0)
   * PHPCS packages including: (All Github Repos)
-    * squizlabs/php_codesniffer (3.5.8)
+    * squizlabs/php_codesniffer (3.6.0)
     * phpcompatibility/php-compatibility (9.3.5)
     * wp-coding-standards/wpcs (2.3.0)
-    * dealerdirect/phpcodesniffer-composer-installer (0.7.0)
-    * sirbrillig/phpcs-variable-analysis (2.9.0)
+    * dealerdirect/phpcodesniffer-composer-installer (0.7.1)
+    * sirbrillig/phpcs-variable-analysis (2.11.2)
   * Other librays Installed:
     * FreeType
     * FreeType Dev
@@ -52,3 +52,4 @@ This Docker Image Includes:
 * 1.0.9: Updated to PHP 7.4.11, Alpine 3.11, Node JS 10.22.1, NPM 6.14.6, Composer 2.0.2, SASS 4.14.1, php_codesniffer 3.5.5, php-compatibility 9.3.5, wpcs 2.1.1, phpcodesniffer-composer-installer 0.7.0, phpcs-variable-analysis 2.8.3
 * 1.1.0: php_codesniffer 3.5.8, wpcs 2.3.0, phpcs-variable-analysis 2.9.0
 * 1.2.0: Bigger Vewrsion update as this is now updateds for Gulp 4. Also updated Node to 12.20.1
+* 1.3.0: Updated from PHP 7.4 to PHP 8 with alpine 3.13.  THis also has updated Node, NPM and CI Pckages

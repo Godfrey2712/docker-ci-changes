@@ -43,23 +43,28 @@ RUN npm install -g gulp
 # Install Gulp Sass
 RUN npm rebuild -g node-sass
 
+# Specify Composer Versions
+ENV php_codesniffer=3.6.* php_compatibility=9.3.* wpcs=2.3.* phpcodesniffer_composer_installer=0.7.* phpcs_variable_analysis=2.11.*
+
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Check for Composer Updates
 RUN composer self-update --2
 
-# Copy the Composer File
-COPY composer.json ./
-
 # Install from Composer
-RUN composer install
+RUN composer global require \
+"squizlabs/php_codesniffer=$php_codesniffer" \
+"phpcompatibility/php-compatibility=$php_compatibility" \
+"wp-coding-standards/wpcs=$wpcs" \
+"dealerdirect/phpcodesniffer-composer-installer=$phpcodesniffer_composer_installer" \
+"sirbrillig/phpcs-variable-analysis=$phpcs_variable_analysis"
 
 # Check versions after complete
 RUN node -v
 RUN npm -v
 RUN composer -V
 RUN gulp -v
-RUN composer show
+RUN composer global show
 RUN npm list -g --depth 0
 RUN npm ls -g --depth 1
