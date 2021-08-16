@@ -39,7 +39,7 @@ Build:
       .
     - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
 
-# Here, the goal is to tag the "master" branch as "latest"
+# Here, the goal is to tag the "main" branch as "latest"
 Push latest:
   variables:
     # We are just playing with Docker here. 
@@ -47,9 +47,12 @@ Push latest:
     GIT_STRATEGY: none
   stage: push
   only:
-    # Only "master" should be tagged "latest"
-    - master
+    variables:
+      # Only "main" should be tagged "latest"
+      - $CI_COMMIT_REF_NAME == "main"
   script:
+    - echo $CI_REGISTRY_IMAGE
+    - echo $CI_REGISTRY
     # Because we have no guarantee that this job will be picked up by the same runner 
     # that built the image in the previous step, we pull it again locally
     - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
@@ -70,5 +73,5 @@ Push tag:
     - tags
   script:
     - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
-    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
-    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
+    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG
