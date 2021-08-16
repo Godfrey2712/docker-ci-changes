@@ -2,7 +2,7 @@
   "name": "docker-ci",
   "version": "1.0.0",
   "description": "Composer File for use with Docker",
-  "devDependencies": {
+  "dependencies": {
     "autoprefixer": "^10.2.6",
     "chalk": "^4.1.0",
     "del": "^6.0.0",
@@ -36,9 +36,7 @@
     "npm-check": "^5.9.2",
     "postcss": "^8.3.0",
     "precss": "^4.0.0",
-    "yargs": "^16.2.0"
-  },
-  "dependencies": {
+    "yargs": "^16.2.0",
     "handlebars": "^4.7.7",
     "jquery-serializejson": "3.2.0",
     "select2": "^4.1.0-rc.0",

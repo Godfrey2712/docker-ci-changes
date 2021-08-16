@@ -4,13 +4,12 @@ https://hub.docker.com/repository/docker/snightingale37/gitlab-ci-php-alpine-nod
 
 This Docker Image Includes:
 
-* php:7.4.11-fpm-alpine3.11
-  * PHP 7.4.11
-  * Alpine Linux (3.11)
-  * Enabled pcntl
-  * Node JS (12.20.1)
-  * NPM (6.14.10)
-  * Composer(2.0.8)
+* php:8.0.9-fpm-alpine3.13
+  * PHP 8.0.9
+  * Alpine Linux (3.13)
+  * Node JS (14.17.4)
+  * NPM (6.14.14)
+  * Composer(2.1.5)
   * Gulp (4.0.2)
   * Gulp CLI (2.3.0)
   * NPM packages including:
