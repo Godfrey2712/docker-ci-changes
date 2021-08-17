@@ -1,22 +1,14 @@
 # This is a GitLab CI configuration to build the project as a docker image
 # The file is generic enough to be dropped in a project containing a working Dockerfile
-
 # do not use "latest" here, if you want this to work in the future
 image: docker:18
-
 stages:
   - build
   - push
-
-# Use this if your GitLab runner does not use socket binding
-# services:
-#   - docker:dind
-
 before_script:
   # docker login asks for the password to be passed through stdin for security
   # we use $CI_JOB_TOKEN here which is a special token provided by GitLab
   - echo -n $CI_JOB_TOKEN | docker login -u gitlab-ci-token --password-stdin $CI_REGISTRY
-
 Build:
   stage: build
   script:
@@ -35,7 +27,6 @@ Build:
       --tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
       .
     - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
-
 # Here, the goal is to tag the "main" branch as "latest"
 Push latest:
   variables:
@@ -48,8 +39,6 @@ Push latest:
       # Only "main" should be tagged "latest"
       - $CI_COMMIT_REF_NAME == "main"
   script:
-    - echo $CI_REGISTRY_IMAGE
-    - echo $CI_REGISTRY
     # Because we have no guarantee that this job will be picked up by the same runner 
     # that built the image in the previous step, we pull it again locally
     - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
@@ -57,7 +46,6 @@ Push latest:
     - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $CI_REGISTRY_IMAGE:latest
     # Annnd we push it.
     - docker push $CI_REGISTRY_IMAGE:latest
-
 # Finally, the goal here is to Docker tag any Git tag
 # GitLab will start a new pipeline everytime a Git tag is created, which is pretty awesome
 Push tag:

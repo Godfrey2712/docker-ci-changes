@@ -44,7 +44,7 @@ RUN npm install -g gulp
 RUN npm rebuild -g node-sass
 
 # Specify Composer Versions
-ENV php_codesniffer=3.6.* php_compatibility=9.3.* wpcs=2.3.* phpcodesniffer_composer_installer=0.7.* phpcs_variable_analysis=2.11.*
+ENV php_codesniffer=3.6.* php_compatibility=9.3.* wpcs=2.3.* phpcs_variable_analysis=2.11.* phpcodesniffer_composer_installer=0.7.*
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
