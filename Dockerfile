@@ -42,6 +42,7 @@ RUN npm install -g gulp
 
 # Install Gulp Sass
 RUN npm rebuild -g node-sass
+RUN npm rebuild node-sass
 
 # Specify Composer Versions
 ENV php_codesniffer=3.6.* php_compatibility=9.3.* wpcs=2.3.* phpcs_variable_analysis=2.11.* phpcodesniffer_composer_installer=0.7.*
