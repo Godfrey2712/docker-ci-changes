@@ -53,6 +53,9 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Check for Composer Updates
 RUN composer self-update --2
 
+# Allow from Composer
+RUN composer global config --no-plugins allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
+
 # Install from Composer
 RUN composer global require \
 "squizlabs/php_codesniffer=$php_codesniffer" \
