@@ -45,13 +45,16 @@ RUN npm rebuild -g node-sass
 RUN npm rebuild node-sass
 
 # Specify Composer Versions
-ENV php_codesniffer=3.6.* php_compatibility=9.3.* wpcs=2.3.* phpcs_variable_analysis=2.11.* phpcodesniffer_composer_installer=0.7.*
+ENV php_codesniffer=3.7.* php_compatibility=9.3.* wpcs=2.3.* phpcs_variable_analysis=2.11.* phpcodesniffer_composer_installer=0.7.*
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Check for Composer Updates
 RUN composer self-update --2
+
+# Allow from Composer
+RUN composer global config --no-plugins allow-plugins.dealerdirect/phpcodesniffer-composer-installer true
 
 # Install from Composer
 RUN composer global require \

@@ -53,3 +53,4 @@ This Docker Image Includes:
 * 1.1.0: php_codesniffer 3.5.8, wpcs 2.3.0, phpcs-variable-analysis 2.9.0
 * 1.2.0: Bigger Vewrsion update as this is now updateds for Gulp 4. Also updated Node to 12.20.1
 * 1.3.0: Updated from PHP 7.4 to PHP 8 with alpine 3.13.  THis also has updated Node, NPM and CI Pckages
+* 1.4.0: php_codesniffer 3.7*
