@@ -72,3 +72,13 @@ RUN gulp -v
 RUN composer global show
 RUN npm list -g --depth 0
 RUN npm ls -g --depth 1
+
+# Make new dir in docker image
+RUN mkdir -p /docker_ci
+
+# Copy the content of the common_ci to the docker dir
+COPY common_ci/ /docker_ci
+
+# List all dir and files to be sure it copied
+RUN ls -laR ./*
+RUN ls -laR /*
