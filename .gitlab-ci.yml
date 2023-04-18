@@ -18,6 +18,7 @@ Build:
     # notice the cache-from, which is going to use the image we just pulled locally
     # the built image is tagged locally with the commit SHA, and then pushed to 
     # the GitLab registry
+    # use "--no-cache" flag beside the docker build in order to build from scratch and not cache
     - >
       docker build
       --pull
