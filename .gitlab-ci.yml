@@ -54,9 +54,9 @@ Push tag:
     # Again, we do not need the source code here. Just playing with Docker.
     GIT_STRATEGY: none
   stage: push
-  #only:
+  only:
     # We want this job to be run on tags only.
-    #- tags
+    - tags
   script:
     - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
     - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG
