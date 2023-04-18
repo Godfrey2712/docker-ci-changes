@@ -50,6 +50,9 @@ ENV php_codesniffer=3.7.* php_compatibility=9.3.* wpcs=2.3.* phpcs_variable_anal
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+# Allow for root
+ENV COMPOSER_ALLOW_SUPERUSER=1
+
 # Check for Composer Updates
 RUN composer self-update --2
 
