@@ -45,8 +45,13 @@ Push latest:
     - docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
     # Then we tag it "latest"
     - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $CI_REGISTRY_IMAGE:latest
-    # Annnd we push it.
+    # And we push it.
     - docker push $CI_REGISTRY_IMAGE:latest
+    # Uncomment the below if you also want to push to a specific tag after MR (Usually for updates after tag has been created)
+    # Usually this is the recent tag created
+    # Ensure to comment them back before you create a new tag - don't worry much if you forget. But please do not.
+    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA $CI_REGISTRY_IMAGE:1.5.0
+    - docker push $CI_REGISTRY_IMAGE:1.5.0
 # Finally, the goal here is to Docker tag any Git tag
 # GitLab will start a new pipeline everytime a Git tag is created, which is pretty awesome
 Push tag:
