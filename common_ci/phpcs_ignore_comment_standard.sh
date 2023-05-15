@@ -5,10 +5,10 @@
 ##THIS SCRIPT SEARCHES FOR THE WRONG COMMENT FOR phpcs:ignore USED##
 ######################################################################
 #result_wrong=$(grep -rn 'phpcs:ignore(?!.*--.*(\S+))' src/) #To be tested later for pcre standard
-result_wrong=$(grep -Rn "// phpcs:ignore [^[:space:]]*$" src/*)
+#result_wrong=$(find src -type d -path "src/includes/PEAR/HTTP" -prune -o -type f -exec grep -Rn "// phpcs:ignore [^[:space:]]*$" {} +)
+result_wrong=$(grep -Rn --exclude-dir=src/includes/PEAR/HTTP/ "// phpcs:ignore [^[:space:]]*$" src/*)
 echo  "PHPCS IGNORE LINES MISSING COMMENTS: "
 echo "$result_wrong" | awk -F: '{print "Line " $2 " in " $1; printf "--------------------------------------------------------------------------------------\n" }'
-
 ######################################################################
 ##THIS SCRIPT FAILS THE JOB IF ANY WRONG PATTERN IS FOUND##
 ######################################################################
