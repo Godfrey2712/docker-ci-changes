@@ -3,8 +3,8 @@
 pattern="\.\s"
 # The translation functions to search for, you can add more using a pipe
 functions="__|_e"
-# Search for calls to translation functions with the pattern in the parameter
-matches=$(grep -rnoE "($functions)\([^)]*$pattern[^)]*\)" src/)
+# Search for calls to translation functions with the pattern in the parameter (excluding brackets and their contents)
+matches=$(grep -rnoE "($functions)\([^()]*$pattern[^()]*\)" src/ | sed 's/([^)]*)//g')
 # Check for any matches
 if [ -n "$matches" ]; then
     echo "Found the following matches:"
