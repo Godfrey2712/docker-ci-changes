@@ -6,7 +6,7 @@
 ######################################################################
 #result_wrong=$(grep -rn 'phpcs:ignore(?!.*--.*(\S+))' src/) #To be tested later for pcre standard
 #result_wrong=$(find src -type d -path "src/includes/PEAR/HTTP" -prune -o -type f -exec grep -Rn "// phpcs:ignore [^[:space:]]*$" {} +)
-result_wrong=$(grep -Rn --exclude-dir=src/includes/PEAR/HTTP/ "// phpcs:ignore [^[:space:]]*$" src/*)
+result_wrong=$(grep -Rn "// phpcs:ignore [^[:space:]]*$" $(find src -type f \( -not -path 'src/includes/PEAR/HTTP/*' \)))
 echo  "PHPCS IGNORE LINES MISSING COMMENTS: "
 echo "$result_wrong" | awk -F: '{print "Line " $2 " in " $1; printf "--------------------------------------------------------------------------------------\n" }'
 ######################################################################
