@@ -83,6 +83,7 @@ RUN mkdir -p /docker_ci
 # To be consumed with /docker_ci/{name_of_ci_file}
 ADD common_ci/ /docker_ci
 
-# List all dir and files to be sure it copied
+# List all dir and files to be sure it copied 
+# This would be seen only when a new a new file is added or a new change is made at buildstage.
 RUN ls -laR ./*
 RUN ls -laR /*
