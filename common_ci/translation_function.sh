@@ -2,7 +2,7 @@
 # Pattern to search for (full stop followed by a space)
 pattern="\.\s"
 # The translation functions to search for, you can add more using a pipe
-functions="__|_e"
+functions="__|\s_e"
 # Exclude at least two dots and a space seen
 exclude_dots="\.\.\s"
 # Exclude brackets seen inside the translation function
