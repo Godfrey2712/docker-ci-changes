@@ -4,7 +4,7 @@ pattern="\.\s"
 # The translation functions to search for, you can add more using a pipe
 functions="__|_e"
 # Exclude at least two dots and a space seen
-exclude_dots="\.{2,}\s"
+exclude_dots="\.\.\s"
 # Exclude brackets seen inside the translation function
 exclude_bracket="\([^()]+\)"
 # Word to exclude from the search (e.g., N.B., etc)
