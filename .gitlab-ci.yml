@@ -50,7 +50,7 @@ Push latest:
   only:
     variables:
       # Only "main" should be tagged "latest"
-      - $CI_COMMIT_REF_NAME =! "main"
+      - $CI_COMMIT_REF_NAME != "main"
   script:
     - echo $CI_REGISTRY_IMAGE
     - echo $CI_REGISTRY
