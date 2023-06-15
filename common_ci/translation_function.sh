@@ -2,7 +2,7 @@
 # Pattern to search for in translation functions
 pattern="\([^)]* \([^)]*\) [^.]*\.\s[^)]*\)|\([^()]*\.\s[^()]*\)"
 # The translation functions to search for, you can add more using a pipe
-functions="__|\s_e"
+functions="\s__|\s_e"
 # Exclude at least two dots and a space seen
 exclude_dots="\.\.\s"
 # Word to exclude from the search (e.g., N.B., etc)
