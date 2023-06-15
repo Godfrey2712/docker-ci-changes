@@ -1,6 +1,6 @@
 #!/bin/bash
 # Pattern to search for in translation functions
-pattern="\([^(]*\([^)]*\)[^.]*\.\s[^)]*\)|\([^()]*\.\s[^()]*\)"
+pattern="\([^)]* \([^)]*\) [^.]*\.\s[^)]*\)|\([^()]*\.\s[^()]*\)"
 # The translation functions to search for, you can add more using a pipe
 functions="__|\s_e"
 # Exclude at least two dots and a space seen
