@@ -7,8 +7,11 @@ functions="__|\s_e"
 exclude_dots="\.\.\s"
 # Word to exclude from the search (e.g., N.B., etc)
 exclude_word="[A-Za-z]\.[A-Za-z]\.\s"
+# Exclude etc.
+exclude_etc="etc\."
 # Search for calls to translation functions with the pattern in the parameter
-filtered_matches=$(grep -rnE "($functions)($pattern)" src/ | sed "s/$exclude_word//g; s/$exclude_dots//g")
+# This is used to exclude commented lines "s|//.*||g"
+filtered_matches=$(grep -rnE "($functions)($pattern)" src/ | sed "s/$exclude_word//g; s/$exclude_dots//g; s/$exclude_etc//g; s|//.*||g")
 # Further check
 matches=$(echo "$filtered_matches" | grep -E "($functions)($pattern)")
 # Check for any matches
