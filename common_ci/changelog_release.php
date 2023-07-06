@@ -18,8 +18,12 @@ $access_token = getenv('Updraft_CI');
 
 // sort the file contents
 $fileContents = array();
+// Read file contents and remove leading white spaces
 foreach ($changes_files as $file) {
-    $fileContents[] = file_get_contents($file);
+    $content = file_get_contents($file);
+    // remove leading white spaces
+    $content = preg_replace('/^\s+/m', '', $content);
+    $fileContents[] = $content;
 }
 sort($fileContents);
 $sortedContent = implode("\n", $fileContents);
