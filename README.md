@@ -55,3 +55,4 @@ This Docker Image Includes:
 * 1.3.0: Updated from PHP 7.4 to PHP 8 with alpine 3.13.  THis also has updated Node, NPM and CI Pckages
 * 1.4.0: php_codesniffer 3.7*
 * 1.5.0: Common ci dir and some common ci files created
+* 1.5.1: Updated new read me system to remove leading white spaces
