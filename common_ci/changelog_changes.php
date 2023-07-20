@@ -13,7 +13,7 @@ $url_get = "https://source.updraftplus.com/api/v4/projects/" . urlencode($projec
 $access_token = getenv('Updraft_CI');
 
 // check if file already exists
-if (file_exists("changes/{$current_branch}.txt")) {
+if (file_exists("changes/$current_branch.txt")) {
     echo "File already exists.\n";
     exit(0);
 }
