@@ -56,3 +56,4 @@ This Docker Image Includes:
 * 1.4.0: php_codesniffer 3.7*
 * 1.5.0: Common ci dir and some common ci files created
 * 1.5.1: Updated new read me system to remove leading white spaces
+* 1.5.2: Updated new read me system to remove get request (Tag not used)
