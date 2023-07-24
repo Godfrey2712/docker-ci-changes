@@ -1,10 +1,19 @@
 #!/bin/bash
-# Pattern to search for (full stop followed by a space)
-pattern="\.\s"
+# Pattern to search for in translation functions
+pattern="\([^)]* \([^)]*\) [^.]*\.\s[^)]*\)|\([^()]*\.\s[^()]*\)"
 # The translation functions to search for, you can add more using a pipe
-functions="__|_e"
+functions="__|\s_e"
+# Exclude at least two dots and a space seen
+exclude_dots="\.\.\s"
+# Word to exclude from the search (e.g., N.B., etc)
+exclude_word="[A-Za-z]\.[A-Za-z]\.\s"
+# Exclude etc.
+exclude_etc="etc\."
 # Search for calls to translation functions with the pattern in the parameter
-matches=$(grep -rnoE "($functions)\([^)]*$pattern[^)]*\)" src/)
+# This is used to exclude commented lines "s|//.*||g"
+filtered_matches=$(grep -rnE "($functions)($pattern)" src/ | sed "s/$exclude_word//g; s/$exclude_dots//g; s/$exclude_etc//g; s|//.*||g")
+# Further check
+matches=$(echo "$filtered_matches" | grep -E "($functions)($pattern)")
 # Check for any matches
 if [ -n "$matches" ]; then
     echo "Found the following matches:"
