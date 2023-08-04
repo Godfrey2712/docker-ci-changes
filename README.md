@@ -57,3 +57,4 @@ This Docker Image Includes:
 * 1.5.0: Common ci dir and some common ci files created
 * 1.5.1: Updated new read me system to remove leading white spaces
 * 1.5.2: Updated new read me system to remove get request (Tag not used)
+* 1.5.3: Added common ci script to send notification to slack channel on a failed job on a Default branch (main/master)
