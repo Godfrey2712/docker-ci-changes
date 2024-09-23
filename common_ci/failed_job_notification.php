@@ -7,7 +7,7 @@
 // using this "php /docker_ci/failed_job_notification.php" as a gitlab job
 
 // If a New Token is needed, you need to go to: https://api.slack.com/apps/APCA2G406/oauth to generate one
-define('SLACK_API_TOKEN', 'xoxb-32505566439-4297528362499-VhwUWSNX9mhntvG1Cw3V4LsI');
+define('SLACK_API_TOKEN', 'xoxb-32505566439-42975LsI');
 
 // Get the GitLab project ID from the CI_PROJECT_ID environment variable
 $project_id = getenv('CI_PROJECT_ID');
